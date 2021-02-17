@@ -54,8 +54,6 @@ $.ajax('data/page-1.json').then(data => {
   $("select").on("change", function (event) {
     $("div").hide();
     let KeyWordList2 = $(this).val();
-    
-   
     $(`.${KeyWordList2}`).show();
   });
 
@@ -64,14 +62,14 @@ $.ajax('data/page-1.json').then(data => {
   // sort the images 
 
   $('#hornsNum').click(function() {
-
+    $('main').empty();
     
     ImagesObjArray.sort((a,b) => 
     {
       return a.horns - b.horns;
     });
 
-    $('main').empty();
+    
     
     ImagesObjArray.forEach((Value) =>
     {
@@ -84,7 +82,7 @@ $.ajax('data/page-1.json').then(data => {
 
 $('#titleSort').click(function()
 {
- 
+  $('main').empty();
   //if()
   ImagesObjArray.sort((a,b) => 
   {
@@ -98,7 +96,7 @@ $('#titleSort').click(function()
     return 0;
   });
 
-  $('main').empty();
+  
   
  
   ImagesObjArray.forEach((Value) =>
@@ -116,12 +114,12 @@ $('#page1').click(function()
 
   $('main').empty();
   $("select").empty();
-  // $('#titleSort').remove();
-  // $('#hornsNum').remove();
-
+  ImagesObjArray = [];
+  
+ 
   
   $.ajax('data/page-1.json').then(data => {
-   
+    
     data.forEach((element) => {
     
       let displayImg = new ImgInfo(element);
@@ -141,8 +139,7 @@ $('#page2').click(function()
 
   $('main').empty();
   $("select").empty();
-  
-  
+  ImagesObjArray = [];
 
   $.ajax('data/page-2.json').then(data => {
    
@@ -157,4 +154,3 @@ $('#page2').click(function()
   
 
 })
-
